@@ -6,10 +6,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 edge_options = Options()
 edge_options.use_chromium = True
+edge_options.binary_location = 'C:\\Users\\JenkinsUser\\AppData\\Local\\Microsoft\\Edge SxS\\Application\\msedge.exe'
 
 driver = webdriver.Edge(options=edge_options, verbose=True, service_args=['--verbose'])
 
 try:
+    driver.set_window_rect(x=10,y=10, width=600, height=600)
     rect = driver.get_window_rect()
     print(rect)
     driver.maximize_window()
